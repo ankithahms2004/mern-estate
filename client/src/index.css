@@ -1,0 +1,34 @@
+@tailwind base;
+*::-webkit-scrollbar{
+    display: none;
+}
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* .main{
+    width:100%;
+    height: 100vh;
+} */
+
+/* video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+/* .content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+display: flex;
+flex-direction: column;
+
+} */
