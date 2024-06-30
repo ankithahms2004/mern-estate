@@ -56,7 +56,7 @@ setError(error.message);
         <input type='text' placeholder='username' className='border p-3 rounded-lg' id='username' onChange={handleChange} ></input>
         <input type='email' placeholder='email' className='border p-3 rounded-lg' id='email' onChange={handleChange} ></input>
         <input type='password' placeholder='password' className='border p-3 rounded-lg' id='password' onChange={handleChange} ></input>
-        <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading ? 'Loading' : 'Sign up'}</button>
+        <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading ? 'Loading...' : 'Sign up'}</button>
       </form>
       <div className='flex gap-2 mt-3'>
         <p>Have an account ?</p>
