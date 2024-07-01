@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice.js"
+import OAuth from '../components/OAuth.jsx';
 
 
 
@@ -9,6 +10,8 @@ const Signin = () => {
   const [formData,setFormData] = useState({});
  const {loading,error}= useSelector((state)=>state.user);
   const navigate=useNavigate();
+  const dispatch = useDispatch();
+
 
 
   const handleChange = (e)=>{
@@ -24,7 +27,7 @@ const Signin = () => {
   const handleSubmit = async (e)=>{
     e.preventDefault();
     try{
-      dispatchEvent(signInStart());
+      dispatch(signInStart());
     const res = await fetch('/api/auth/signin',{
       method:"POST",
       headers:{
@@ -35,14 +38,14 @@ const Signin = () => {
   )
 const data = await res.json();
 if(data.success === false){
-  dispatchEvent(signInFailure(data.message));
+  dispatch(signInFailure(data.message));
   return
 }
-dispatchEvent(signInSuccess(data));
+dispatch(signInSuccess(data));
 navigate('/');
 
     }catch(error){
-dispatchEvent(signInFailure(error.message));
+dispatch(signInFailure(error.message));
     }
     
 };
@@ -56,6 +59,7 @@ dispatchEvent(signInFailure(error.message));
         <input type='email' placeholder='email' className='border p-3 rounded-lg' id='email' onChange={handleChange} ></input>
         <input type='password' placeholder='password' className='border p-3 rounded-lg' id='password' onChange={handleChange} ></input>
         <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading ? 'Loading...' : 'Sign in'}</button>
+        <OAuth></OAuth>
       </form>
       <div className='flex gap-2 mt-3'>
         <p>Dont have an account ?</p>
