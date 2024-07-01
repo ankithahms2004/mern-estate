@@ -2,9 +2,13 @@ import React,{useState} from 'react'
 import { FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import vedio5 from "../assets/vedio5.mp4";
+import { useSelector } from 'react-redux';
+import img_1 from "../assets/img_1.png";
 
 
 const Header = () => {
+
+  const {currentUser} = useSelector(state=>state.user)
 
 
   return (
@@ -34,11 +38,14 @@ const Header = () => {
         <li className='hidden sm:inline text-white hover:underline text-lg'>Home</li></Link>
         <Link to='/about'>
         <li className='hidden sm:inline text-white hover:underline text-lg'>About</li></Link>
-        <Link to='/sign-in'>
-        <li className='sm:inline text-white hover:underline text-lg'>Sign in</li></Link>
-        <li className='sm:inline text-white hover:underline text-lg'>|</li>
+
+        <Link to='/profile'>
+        {currentUser ?
+        (<img className='rounded-full h-7 w-7 object-cover' src={img_1} alt='Profile'/>):
+       <><Link to='/sign-in'><li className='sm:inline text-white hover:underline text-lg'>Sign in </li></Link>
+        <li className='sm:inline text-white hover:underline text-lg'> | </li>
         <Link to='/sign-up'>
-        <li className='sm:inline text-white hover:underline text-lg'>Sign up</li></Link>
+        <li className='sm:inline text-white hover:underline text-lg'> Sign up</li></Link></> }</Link>
 
     </ul>
 </div>
