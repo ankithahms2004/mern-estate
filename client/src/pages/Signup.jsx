@@ -40,7 +40,7 @@ if(data.success === false){
 }
 setLoading(false);
 setError(null);
-navigate('/sign-in');
+navigate('/');
 
     }catch(error){
 setLoading(false);

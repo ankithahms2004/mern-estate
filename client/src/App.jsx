@@ -1,28 +1,36 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom" 
-import Home from "./pages/Home"
-import About from "./pages/About"
-import Profile from "./pages/Profile"
-import Signin from "./pages/Signin"
-import Signup from "./pages/Signup"
-import PrivateRoute from "./components/PrivateRoute"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import SignIn from './pages/Signin';
+import SignUp from './pages/Signup';
+import About from './pages/About';
+import Profile from './pages/Profile';
+import PrivateRoute from './components/PrivateRoute';
+import CreateListing from './pages/CreateListing';
+import UpdateListing from './pages/UpdateListing';
+import Listing from './pages/Listing';
+// import Search from './pages/Search';
 
-
-
-const App = () => {
+export default function App() {
   return (
-   <BrowserRouter>
-  
-   <Routes>
-    <Route path="/" element={<Home/>}></Route>
-    <Route path="/sign-in" element={<Signin/>}></Route>
-    <Route path="/sign-up" element={<Signup/>}></Route>
-    <Route  element={<PrivateRoute/>}>
-    <Route path="/profile" element={<Profile/>}></Route></Route>
-    <Route path="/about" element={<About/>}></Route>
+    <BrowserRouter>
+      
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/sign-in' element={<SignIn />} />
+        <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/about' element={<About />} />
+        {/* <Route path='/search' element={<Search />} /> */}
+        <Route path='/listing/:listingId' element={<Listing />} />
 
-   </Routes>
-   </BrowserRouter>
-  )
+        <Route element={<PrivateRoute />}>
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/create-listing' element={<CreateListing />} />
+          <Route
+            path='/update-listing/:listingId'
+            element={<UpdateListing />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
