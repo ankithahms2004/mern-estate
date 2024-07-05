@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { FaSearch } from "react-icons/fa";
 import { Link,useNavigate } from 'react-router-dom';
 import vedio5 from "../assets/vedio5.mp4";
@@ -49,7 +49,8 @@ const Header = () => {
 <form onSubmit={handleSubmit} className='bg-slate-100 m-2 p-2 rounded-full flex items-center'>
     <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-24 sm:w-64' value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)} />
-    <FaSearch className='text-slate-600'/>
+            <button>    <FaSearch className='text-slate-600'/>
+            </button>
     </form>
     <ul className='flex gap-4'>
         <Link to='/'>
