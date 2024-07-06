@@ -60,11 +60,11 @@ const Header = () => {
             <button>    <FaSearch className='text-slate-600'/>
             </button>
     </form>
-    <ul className='flex gap-4'>
+    <ul className='flex gap-3'>
         <Link to='/'>
         <li className='hidden sm:inline text-white hover:underline text-lg'>Home</li></Link>
         <Link to='/about'>
-        <li className='hidden sm:inline text-white hover:underline text-lg'>About</li></Link>
+        <li className=' inline text-white hover:underline text-lg'>About</li></Link>
 
         <Link to='/profile'>
         {currentUser ?
