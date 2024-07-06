@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { FaSearch } from "react-icons/fa";
 import { Link,useNavigate } from 'react-router-dom';
-import vedio5 from "../assets/vedio5.mp4";
+import vedio5 from "../assets/vedio2.mp4";
 import { useSelector } from 'react-redux';
 import img_1 from "../assets/img_1.png";
 
@@ -10,6 +10,7 @@ const Header = () => {
 
   const {currentUser} = useSelector(state=>state.user)
   const [searchTerm, setSearchTerm] = useState('');
+  const [year,setyear] = useState(2024)
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +19,13 @@ const Header = () => {
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
+
+  ()=>{
+    date= new Date();
+    date.getFullYear();
+    setyear(date)
+    
+  }
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -67,8 +75,29 @@ const Header = () => {
 
     </ul>
 </div>
-     <div className='m-10 p-10'>
-        <h1 className="flex text-3xl sm:text-5xl text-center items-center justify-center mt-7 sm:mt-20  p-6 sm:p-20  text-white">Start now</h1>
+     <div className='m-3 sm:m-10 p-3 sm:p-10'>
+        <h1 className="  sm:relative text-3xl sm:text-5xl text-left items-start justify-start mt-4 sm:mt-20   sm:p-20 sm:pt-5 text-white"><div className='sm:flex top-20 sm:top-0 absolute sm:relative sm:pt-8 sm:flex-col gap-6  max-w-1xl sm:max-w-6xl '>
+        <h1 className=' sm:pt-3   text-sm font-bold   sm:text-3xl md:text-3xl lg:text-6xl'>
+        Get some space in  <span className='text-gray-300 '>{year}</span>
+          <br />
+        with ease...
+        </h1>
+        <div className='text-white max-w-1xl pt-1 sm:pt-3 pb-1 sm:pb-3 flex flex-wrap text-xs sm:text-sm font-semibold sm:font-bold'>
+          Ankith's Estate is the best place to find your next perfect place to
+          live.
+          <br />
+          We have a wide range of properties for you to choose from.
+        </div>
+       
+        <Link
+          to={'/search'}
+          className='text-xs sm:text-sm text-white font-bold hover:underline'>
+             <button className='bg-orange-500 p-2  rounded-lg  font-semibold sm:font-bold text-sm sm:text-md'>
+          Start now
+          </button>
+        </Link>
+       
+      </div></h1>
      
      </div>
      </div>
