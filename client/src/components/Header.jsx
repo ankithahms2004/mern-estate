@@ -88,11 +88,11 @@ const Header = () => {
           <br />
           We have a wide range of properties for you to choose from.
         </div>
-       
+      
         <Link
           to={'/search'}
-          className='text-xs sm:text-sm text-white font-bold hover:underline'>
-             <button className='bg-orange-500 p-2  rounded-lg  font-semibold sm:font-bold text-sm sm:text-md'>
+          className='text-xs sm:text-sm  text-white font-bold hover:underline'>
+             <button className='bg-orange-500 p-3 sm:p-2 rounded-lg  font-semibold sm:font-bold text-sm sm:text-md'>
           Start now
           </button>
         </Link>
