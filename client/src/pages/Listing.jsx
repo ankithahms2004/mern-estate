@@ -66,7 +66,7 @@ export default function Listing() {
         <p className='text-center my-7 text-2xl'>Something went wrong!</p>
       )}
       {listing && !loading && !error && (
-        <div data-aos="zoom-in-left">
+        <div className='top-5 mt-2' data-aos="zoom-in-left">
           <Swiper navigation>
             {listing.imageUrls.map((url) => (
               <SwiperSlide key={url}>
