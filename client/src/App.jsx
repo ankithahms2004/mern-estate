@@ -9,6 +9,11 @@ import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Contactus from './pages/contactus';
+
+
+
 
 export default function App() {
   return (
@@ -21,6 +26,9 @@ export default function App() {
         <Route path='/about' element={<About />} />
         <Route path='/search' element={<Search />} />
         <Route path='/listing/:listingId' element={<Listing />} />
+        <Route path='/privacy' element={<PrivacyPolicy/>} />
+        <Route path='/contact-us' element={<Contactus/>} />
+
 
         <Route element={<PrivateRoute />}>
           <Route path='/profile' element={<Profile />} />

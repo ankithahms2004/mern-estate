@@ -1,3 +1,10 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init({
+  offset:800,
+  once:true,
+  duration:1200
+});
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -23,7 +30,7 @@ export default function Contact({ listing }) {
   return (
     <>
       {landlord && (
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2' data-aos="zoom-in-left">
           <p>
             Contact <span className='font-semibold'>{landlord.username}</span>{' '}
             for{' '}

@@ -1,3 +1,10 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init({
+  offset:800,
+  once:true,
+  duration:1000
+});
 import { useState } from 'react';
 import {
   getDownloadURL,
@@ -8,6 +15,7 @@ import {
 import { app } from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Dashboard from '../components/Dashboard';
 
 export default function CreateListing() {
   const { currentUser } = useSelector((state) => state.user);
@@ -154,13 +162,15 @@ export default function CreateListing() {
     }
   };
   return (
-    <main className='p-3 max-w-5xl mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7 mb-5 text-orange-500'>
-        ADD A NEW LIST...!
+    <>
+    <Dashboard/>
+    <main className='p-3 max-w-5xl mx-auto' >
+      <h1 className='text-3xl font-semibold text-center my-7 mb-5 text-orange-500' data-aos="zoom-in-left">
+        CREATE A NEW LIST...!
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-5'>
-        <div className='flex flex-col gap-4 flex-1'>
-          <input
+        <div className='flex flex-col gap-4 flex-1' data-aos="zoom-in-left">
+          <input 
             type='text'
             placeholder='Name'
             className='border p-3 rounded-lg'
@@ -171,7 +181,7 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.name}
           />
-          <textarea
+          <textarea 
             type='text'
             placeholder='Description'
             className='border p-3 rounded-lg'
@@ -180,7 +190,7 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.description}
           />
-          <input
+          <input 
             type='text'
             placeholder='Address'
             className='border p-3 rounded-lg'
@@ -189,9 +199,9 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.address}
           />
-          <div className='flex gap-6 flex-wrap'>
+          <div className='flex gap-6 flex-wrap' data-aos="zoom-in-left">
             <div className='flex gap-2'>
-              <input
+              <input 
                 type='checkbox'
                 id='sale'
                 className='w-5'
@@ -200,8 +210,8 @@ export default function CreateListing() {
               />
               <span>Sell</span>
             </div>
-            <div className='flex gap-2'>
-              <input
+            <div className='flex gap-2' data-aos="zoom-in-left">
+              <input 
                 type='checkbox'
                 id='rent'
                 className='w-5'
@@ -210,8 +220,8 @@ export default function CreateListing() {
               />
               <span>Rent</span>
             </div>
-            <div className='flex gap-2'>
-              <input
+            <div className='flex gap-2' data-aos="zoom-in-left">
+              <input 
                 type='checkbox'
                 id='parking'
                 className='w-5'
@@ -220,8 +230,8 @@ export default function CreateListing() {
               />
               <span>Parking spot</span>
             </div>
-            <div className='flex gap-2'>
-              <input
+            <div className='flex gap-2' data-aos="zoom-in-left">
+              <input 
                 type='checkbox'
                 id='furnished'
                 className='w-5'
@@ -230,8 +240,8 @@ export default function CreateListing() {
               />
               <span>Furnished</span>
             </div>
-            <div className='flex gap-2 '>
-              <input
+            <div className='flex gap-2 ' data-aos="zoom-in-left">
+              <input 
                 type='checkbox'
                 id='offer'
                 className='w-5'
@@ -241,9 +251,9 @@ export default function CreateListing() {
               <span>Offer</span>
             </div>
           </div>
-          <div className='flex flex-wrap gap-6'>
+          <div className='flex flex-wrap gap-6' data-aos="zoom-in-left">
             <div className='flex items-center gap-2'>
-              <input
+              <input 
                 type='number'
                 id='bedrooms'
                 min='1'
@@ -255,7 +265,7 @@ export default function CreateListing() {
               />
               <p>Beds</p>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2' data-aos="zoom-in-left">
               <input
                 type='number'
                 id='bathrooms'
@@ -287,8 +297,8 @@ export default function CreateListing() {
               </div>
             </div>
             {formData.offer && (
-              <div className='flex items-center gap-2'>
-                <input
+              <div className='flex items-center gap-2 ' >
+                <input 
                   type='number'
                   id='discountPrice'
                   min='0'
@@ -298,7 +308,7 @@ export default function CreateListing() {
                   onChange={handleChange}
                   value={formData.discountPrice}
                 />
-                <div className='flex flex-col items-center'>
+                <div className='flex flex-col items-center' >
                   <p>Discounted price</p>
 
                   {formData.type === 'rent' && (
@@ -309,15 +319,15 @@ export default function CreateListing() {
             )}
           </div>
         </div>
-        <div className='flex flex-col flex-1 gap-4'>
+        <div className='flex flex-col flex-1 gap-4' data-aos="zoom-in-left">
           <p className='font-semibold'>
             Images:
             <span className='font-normal text-gray-600 ml-2'>
               The first image will be the cover (max 6)
             </span>
           </p>
-          <div className='flex gap-4'>
-            <input
+          <div className='flex gap-4' data-aos="zoom-in-left">
+            <input 
               onChange={(e) => setFiles(e.target.files)}
               className='p-3 border border-gray-300 rounded w-full'
               type='file'
@@ -325,7 +335,7 @@ export default function CreateListing() {
               accept='image/*'
               multiple
             />
-            <button
+            <button data-aos="zoom-in-left"
               type='button'
               disabled={uploading}
               onClick={handleImageSubmit}
@@ -367,5 +377,6 @@ export default function CreateListing() {
         </div>
       </form>
     </main>
+    </>
   );
 }

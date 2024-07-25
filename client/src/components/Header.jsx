@@ -1,12 +1,32 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init({
+  offset:800,
+  once:true,
+  duration:1000
+});
 import React,{useState,useEffect} from 'react'
 import { FaSearch } from "react-icons/fa";
 import { Link,useNavigate } from 'react-router-dom';
-import vedio5 from "../assets/vedio2.mp4";
 import { useSelector } from 'react-redux';
 import img_1 from "../assets/img_1.png";
-
+import img_4 from "../assets/img_4.jpg";
+import img_6 from "../assets/img_6.jpeg";
+import img_8 from "../assets/img_8.jpeg";
+import img_9 from "../assets/img_9.jpg";
+import img_11 from "../assets/img_11.jpeg";
+import img_14 from "../assets/img_14.jpeg";
+import img_16 from "../assets/img_16.jpeg";
+import {useTypewriter,Cursor} from 'react-simple-typewriter';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Header = () => {
+
+const [text] = useTypewriter({
+  words:['Get some space in 2024',"Discover a place you'll love to live"],
+  loop:{},
+})
 
   const {currentUser} = useSelector(state=>state.user)
   const [searchTerm, setSearchTerm] = useState('');
@@ -41,16 +61,27 @@ const Header = () => {
    
   
 
-<header >
-     <div className=' overflow-hidden'>
-        <video className='w-100% h-100% object-cover overflow-y-hidden' src={vedio5} autoPlay loop muted></video>
+<header>
+
+     <div className=' overflow-hidden'  data-aos="zoom-in-left">
+      <Carousel autoPlay infiniteLoop className='text-center'><div>
+        <img alt='' src={img_4}/></div>
+        <div><img alt='' src={img_6}/></div>
+        <div><img alt='' src={img_9}/></div>
+        <div><img alt='' src={img_8}/></div>
+        <div><img alt='' src={img_11}/></div>
+        <div><img alt='' src={img_14}/></div>
+        <div><img alt='' src={img_16}/></div>
+
+
+        </Carousel>
         <div className='w-full absolute top-0 left-0 p-2'>
-        <div className='flex justify-between items-center max-w-6xl mx-auto '>
+        <div className='flex justify-between items-center max-w-6xl mx-auto mt-0 sm:mt-2 '>
     
         <Link to='/'>
-    <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-        <span className='text-white'>Ankith's </span><br/>
-        <span className='text-white'>Estate</span>
+    <h1 className='font-bold text-sm sm:text-2xl flex flex-wrap'>
+        <span className='text-white'>Elite Estate</span><br/>
+      
 
     </h1>
     </Link>
@@ -61,10 +92,10 @@ const Header = () => {
             </button>
     </form>
     <ul className='flex gap-3'>
-        <Link to='/'>
-        <li className='hidden sm:inline text-white hover:underline text-lg'>Home</li></Link>
         <Link to='/about'>
-        <li className=' inline text-white hover:underline text-lg'>About</li></Link>
+        <li className='hidden sm:inline text-white hover:underline text-lg'>About</li></Link>
+        <Link to='/profile'>
+        <li className=' inline text-white hover:underline text-lg'>Profile</li></Link>
 
         <Link to='/profile'>
         {currentUser ?
@@ -78,21 +109,23 @@ const Header = () => {
      <div className='m-3 sm:m-10 p-3 sm:p-10'>
         <h1 className="  sm:relative text-3xl sm:text-5xl text-left items-start justify-start mt-4 sm:mt-20   sm:p-20 sm:pt-5 text-white"><div className='sm:flex top-20 sm:top-0 absolute sm:relative sm:pt-8 sm:flex-col gap-6  max-w-1xl sm:max-w-6xl '>
         <h1 className=' sm:pt-3   text-sm font-bold   sm:text-3xl md:text-3xl lg:text-6xl'>
-        Get some space in  <span className='text-gray-300 '>{year}</span>
+       <span className='text-white-300 '>{text}</span><Cursor />
           <br />
-        with ease...
+          <p className='text-gray-200'> with ease...!</p>
+       
         </h1>
-        <div className='text-white max-w-1xl pt-1 sm:pt-3 pb-1 sm:pb-3 flex flex-wrap text-xs sm:text-sm font-semibold sm:font-bold'>
-          Ankith's Estate is the best place to find your next perfect place to
+        <div className='text-white pt-1 sm:pt-3 pb-1 sm:pb-3  text-xs sm:text-sm '>
+          <h1 className='text-xs sm:text-sm font-semibold sm:font-bold  sm:max-w-1xl'>
+         Elite Estate is the best place to find your next perfect place to
           live.
-          <br />
-          We have a wide range of properties for you to choose from.
+          <br /> 
+          We have a wide range of properties for you to choose from.</h1>
         </div>
       
         <Link
           to={'/search'}
           className='text-xs sm:text-sm  text-white font-bold hover:underline'>
-             <button className='bg-orange-500 p-3 sm:p-2 rounded-lg  font-semibold sm:font-bold text-sm sm:text-md'>
+             <button className='bg-orange-500 p-2 rounded-lg  font-semibold sm:font-bold text-sm sm:text-md'>
           Start now
           </button>
         </Link>

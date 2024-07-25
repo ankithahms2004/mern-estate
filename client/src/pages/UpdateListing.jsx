@@ -1,3 +1,10 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init({
+  offset:800,
+  once:true,
+  duration:2000
+});
 import { useEffect, useState } from 'react';
 import {
   getDownloadURL,
@@ -8,6 +15,7 @@ import {
 import { app } from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import Dashboard from '../components/Dashboard';
 
 export default function UpdateListing() {
   const { currentUser } = useSelector((state) => state.user);
@@ -170,13 +178,14 @@ export default function UpdateListing() {
     }
   };
   return (
+    <><Dashboard/>
     <main className='p-3 max-w-4xl mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>
+      <h1 className='text-3xl font-semibold text-center my-7' data-aos="zoom-in-left">
         Update a Listing
       </h1>
-      <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
-        <div className='flex flex-col gap-4 flex-1'>
-          <input
+      <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4' data-aos="zoom-in-left">
+        <div className='flex flex-col gap-4 flex-1' data-aos="zoom-in-left">
+          <input data-aos="zoom-in-left"
             type='text'
             placeholder='Name'
             className='border p-3 rounded-lg'
@@ -187,7 +196,7 @@ export default function UpdateListing() {
             onChange={handleChange}
             value={formData.name}
           />
-          <textarea
+          <textarea data-aos="zoom-in-left"
             type='text'
             placeholder='Description'
             className='border p-3 rounded-lg'
@@ -196,7 +205,7 @@ export default function UpdateListing() {
             onChange={handleChange}
             value={formData.description}
           />
-          <input
+          <input data-aos="zoom-in-left"
             type='text'
             placeholder='Address'
             className='border p-3 rounded-lg'
@@ -205,9 +214,9 @@ export default function UpdateListing() {
             onChange={handleChange}
             value={formData.address}
           />
-          <div className='flex gap-6 flex-wrap'>
-            <div className='flex gap-2'>
-              <input
+          <div className='flex gap-6 flex-wrap' data-aos="zoom-in-left">
+            <div className='flex gap-2' data-aos="zoom-in-left">
+              <input data-aos="zoom-in-left"
                 type='checkbox'
                 id='sale'
                 className='w-5'
@@ -216,8 +225,8 @@ export default function UpdateListing() {
               />
               <span>Sell</span>
             </div>
-            <div className='flex gap-2'>
-              <input
+            <div className='flex gap-2' data-aos="zoom-in-left">
+              <input data-aos="zoom-in-left"
                 type='checkbox'
                 id='rent'
                 className='w-5'
@@ -226,8 +235,8 @@ export default function UpdateListing() {
               />
               <span>Rent</span>
             </div>
-            <div className='flex gap-2'>
-              <input
+            <div className='flex gap-2' data-aos="zoom-in-left">
+              <input data-aos="zoom-in-left"
                 type='checkbox'
                 id='parking'
                 className='w-5'
@@ -236,8 +245,8 @@ export default function UpdateListing() {
               />
               <span>Parking spot</span>
             </div>
-            <div className='flex gap-2'>
-              <input
+            <div className='flex gap-2' data-aos="zoom-in-left">
+              <input data-aos="zoom-in-left"
                 type='checkbox'
                 id='furnished'
                 className='w-5'
@@ -246,8 +255,8 @@ export default function UpdateListing() {
               />
               <span>Furnished</span>
             </div>
-            <div className='flex gap-2'>
-              <input
+            <div className='flex gap-2' data-aos="zoom-in-left">
+              <input data-aos="zoom-in-left"
                 type='checkbox'
                 id='offer'
                 className='w-5'
@@ -257,9 +266,9 @@ export default function UpdateListing() {
               <span>Offer</span>
             </div>
           </div>
-          <div className='flex flex-wrap gap-6'>
+          <div className='flex flex-wrap gap-6' data-aos="zoom-in-left">
             <div className='flex items-center gap-2'>
-              <input
+              <input data-aos="zoom-in-left"
                 type='number'
                 id='bedrooms'
                 min='1'
@@ -271,8 +280,8 @@ export default function UpdateListing() {
               />
               <p>Beds</p>
             </div>
-            <div className='flex items-center gap-2'>
-              <input
+            <div className='flex items-center gap-2' data-aos="zoom-in-left">
+              <input data-aos="zoom-in-left"
                 type='number'
                 id='bathrooms'
                 min='1'
@@ -284,7 +293,7 @@ export default function UpdateListing() {
               />
               <p>Baths</p>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2' >
               <input
                 type='number'
                 id='regularPrice'
@@ -295,7 +304,7 @@ export default function UpdateListing() {
                 onChange={handleChange}
                 value={formData.regularPrice}
               />
-              <div className='flex flex-col items-center'>
+              <div className='flex flex-col items-center' >
                 <p>Regular price</p>
                 {formData.type === 'rent' && (
                   <span className='text-xs'>($ / month)</span>
@@ -303,7 +312,7 @@ export default function UpdateListing() {
               </div>
             </div>
             {formData.offer && (
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-2' >
                 <input
                   type='number'
                   id='discountPrice'
@@ -324,7 +333,7 @@ export default function UpdateListing() {
             )}
           </div>
         </div>
-        <div className='flex flex-col flex-1 gap-4'>
+        <div className='flex flex-col flex-1 gap-4' data-aos="zoom-in-left">
           <p className='font-semibold'>
             Images:
             <span className='font-normal text-gray-600 ml-2'>
@@ -340,7 +349,7 @@ export default function UpdateListing() {
               accept='image/*'
               multiple
             />
-            <button
+            <button data-aos="zoom-in-left"
               type='button'
               disabled={uploading}
               onClick={handleImageSubmit}
@@ -372,7 +381,7 @@ export default function UpdateListing() {
                 </button>
               </div>
             ))}
-          <button
+          <button data-aos="zoom-in-left"
             disabled={loading || uploading}
             className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
           >
@@ -382,5 +391,6 @@ export default function UpdateListing() {
         </div>
       </form>
     </main>
+    </>
   );
 }

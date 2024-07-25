@@ -1,3 +1,10 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init({
+  offset:800,
+  once:true,
+  duration:1500
+});
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,6 +13,7 @@ import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
@@ -49,7 +57,7 @@ export default function Home() {
   return (
     <>
     <Header />
-    <div>
+    <div className='bg-white'>
       {/* top */}
       
 
@@ -76,11 +84,12 @@ export default function Home() {
       <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
         {offerListings && offerListings.length > 0 && (
           <div className=''>
-            <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent offers</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>Show more offers</Link>
+            <div className='my-4 pt-3 pb-4 text-center'data-aos="zoom-in-left">
+            <h2 className='text-4xl font-bold text-center pb-3 text-slate-600 '>Recent offers</h2>
+              <h2 className='text-3xl font-semibold text-center pb-3 text-slate-500'>Your castle awaits.. Find your nook soon.!</h2>
+              <Link className='text-md text-blue-800 hover:underline' to={'/search?offer=true'}>Show more offers</Link>
             </div>
-            <div className='flex flex-wrap gap-4'>
+            <div className='flex flex-wrap gap-4' data-aos="slide-right">
               {offerListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
@@ -89,11 +98,12 @@ export default function Home() {
         )}
         {rentListings && rentListings.length > 0 && (
           <div className=''>
-            <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent places for rent</h2>
+            <div className='my-4 pt-3 pb-4 text-center'data-aos="zoom-in-left">
+              <h2 className='text-4xl pb-3 font-bold text-slate-600'>Recent places for rent</h2>
+              <h2 className='text-3xl font-semibold text-center pb-3 text-slate-500'>Building futures and unlocking possibilities</h2>
               <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Show more places for rent</Link>
             </div>
-            <div className='flex flex-wrap gap-4'>
+            <div className='flex flex-wrap gap-4' data-aos="slide-left">
               {rentListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
@@ -102,11 +112,12 @@ export default function Home() {
         )}
         {saleListings && saleListings.length > 0 && (
           <div className=''>
-            <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent places for sale</h2>
+            <div className='my-4 pt-3 pb-4 text-center'data-aos="zoom-in-left">
+              <h2 className='text-4xl pb-3 font-bold text-slate-600'>Recent places for sale</h2>
+              <h2 className='text-3xl font-semibold text-center pb-3 text-slate-500'>Delivering professional real estate solutions</h2>
               <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Show more places for sale</Link>
             </div>
-            <div className='flex flex-wrap gap-4'>
+            <div className='flex flex-wrap gap-4' data-aos="slide-right">
               {saleListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
@@ -115,6 +126,7 @@ export default function Home() {
         )}
       </div>
     </div>
+    <Footer/>
     </>
   );
 }

@@ -1,3 +1,10 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init({
+  offset:800,
+  once:true,
+  duration:1200
+});
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,6 +22,7 @@ import {
   FaShare,
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
+import Dashboard from '../components/Dashboard';
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
 
@@ -51,17 +59,18 @@ export default function Listing() {
   }, [params.listingId]);
 
   return (
-    <main>
+    <><Dashboard/>
+    <main data-aos="flip-left">
       {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
       {error && (
         <p className='text-center my-7 text-2xl'>Something went wrong!</p>
       )}
       {listing && !loading && !error && (
-        <div>
+        <div data-aos="zoom-in-left">
           <Swiper navigation>
             {listing.imageUrls.map((url) => (
               <SwiperSlide key={url}>
-                <div
+                <div 
                   className='h-[550px]'
                   style={{
                     background: `url(${url}) center no-repeat`,
@@ -71,7 +80,7 @@ export default function Listing() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
+          <div data-aos="zoom-in-left" className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer' >
             <FaShare
               className='text-slate-500'
               onClick={() => {
@@ -88,7 +97,7 @@ export default function Listing() {
               Link copied!
             </p>
           )}
-          <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
+          <div data-aos="zoom-in-left" className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4' >
             <p className='text-2xl font-semibold'>
               {listing.name} - ${' '}
               {listing.offer
@@ -100,21 +109,21 @@ export default function Listing() {
               <FaMapMarkerAlt className='text-green-700' />
               {listing.address}
             </p>
-            <div className='flex gap-4'>
-              <p className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+            <div className='flex gap-4' data-aos="zoom-in-left">
+              <button  className='bg-orange-600 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
                 {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
-              </p>
+              </button>
               {listing.offer && (
-                <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+                <button className='bg-green-600 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
                   ${+listing.regularPrice - +listing.discountPrice} OFF
-                </p>
+                </button>
               )}
             </div>
-            <p className='text-slate-800'>
+            <p className='text-slate-800' >
               <span className='font-semibold text-black'>Description - </span>
               {listing.description}
             </p>
-            <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
+            <ul  className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaBed className='text-lg' />
                 {listing.bedrooms > 1
@@ -137,7 +146,7 @@ export default function Listing() {
               </li>
             </ul>
             {currentUser && listing.userRef !== currentUser._id && !contact && (
-              <button
+              <button 
                 onClick={() => setContact(true)}
                 className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
               >
@@ -149,5 +158,6 @@ export default function Listing() {
         </div>
       )}
     </main>
+    </>
   );
 }

@@ -1,3 +1,10 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init({
+  offset:800,
+  once:true,
+  duration:1200
+});
 import { useSelector } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
 import {
@@ -19,6 +26,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import img_1 from '../assets/img_1.png';
+import Dashboard from '../components/Dashboard';
 
 
 export default function Profile() {
@@ -165,9 +173,13 @@ export default function Profile() {
     }
   };
   return (
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>PROFILE</h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+    <>
+    <Dashboard/>
+    <div className="overflow-hidden">
+    {/* <video className='w-100% h-100% object-cover overflow-y-hidden' src={vedio5} autoPlay loop muted></video> */}
+    <div className='p-3 max-w-lg  mx-auto' data-aos="zoom-in-left">
+      <h1 className='text-3xl font-semibold top-0 text-center  my-7'>PROFILE</h1>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-4' data-aos="zoom-in-left">
         <input
           onChange={(e) => setFile(e.target.files[0])}
           type='file'
@@ -181,7 +193,7 @@ export default function Profile() {
           alt='profile'
           className='rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2'
         />
-        <p className='text-sm self-center'>
+        <p className='text-sm self-center' data-aos="zoom-in-left">
           {fileUploadError ? (
             <span className='text-red-700'>
               Error Image upload (image must be less than 2 mb)
@@ -217,27 +229,27 @@ export default function Profile() {
           id='password'
           className='border p-3 rounded-lg'
         />
-        <button
+        <button data-aos="zoom-in-left"
           disabled={loading}
           className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
-        <Link
+        <Link data-aos="zoom-in-left"
           className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
           to={'/create-listing'}
         >
-          Add a new list
+          Create new listing
         </Link>
       </form>
       <div className='flex justify-between mt-5'>
-        <span
+        <span data-aos="zoom-in-left"
           onClick={handleDeleteUser}
           className='text-red-700 cursor-pointer'
         >
           Delete account
         </span>
-        <span onClick={handleSignout} className='text-red-700 cursor-pointer'>
+        <span data-aos="zoom-in-left" onClick={handleSignout} className='text-red-700 cursor-pointer'>
           Sign out
         </span>
       </div>
@@ -246,7 +258,7 @@ export default function Profile() {
       <p className='text-green-700 mt-5'>
         {updateSuccess ? 'User is updated successfully!' : ''}
       </p>
-      <button onClick={handleShowListings} className='text-green-700 w-full'>
+      <button  onClick={handleShowListings} className='text-green-700 w-full'>
         Show Listings
       </button>
       <p className='text-red-700 mt-5'>
@@ -259,7 +271,7 @@ export default function Profile() {
             Your Listings
           </h1>
           {userListings.map((listing) => (
-            <div
+            <div 
               key={listing._id}
               className='border rounded-lg p-3 flex justify-between items-center gap-4'
             >
@@ -277,7 +289,7 @@ export default function Profile() {
                 <p>{listing.name}</p>
               </Link>
 
-              <div className='flex flex-col item-center'>
+              <div className='flex flex-col item-center' >
                 <button
                   onClick={() => handleListingDelete(listing._id)}
                   className='text-red-700 uppercase'
@@ -293,5 +305,7 @@ export default function Profile() {
         </div>
       )}
     </div>
+    </div>
+    </>
   );
 }
