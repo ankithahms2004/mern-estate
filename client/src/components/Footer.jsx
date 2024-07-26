@@ -89,7 +89,7 @@ const Footer = () => {
       </div>
     </div>
     <div className='flex justify-center'>
-    Copyright © 2024 EliteEstate.Com | All Rights Reserved
+    Copyright © 2024 EliteEstates.Com | All Rights Reserved
     </div>
 
     </footer>

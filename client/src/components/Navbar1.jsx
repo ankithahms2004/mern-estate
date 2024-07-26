@@ -28,11 +28,11 @@ const Navbar1 = ({sidebarToggle,setSidebarToggle}) => {
 
   return (
    
-    <nav className="bg-white px-4  mr-0 py-3 flex shadow justify-between ">
+    <nav className="bg-white px-4 py-3 flex shadow justify-between ">
         <div className="flex items-center">
             <FaBars className="me-4 text-2xl cursor-pointer" onClick={()=>setSidebarToggle(!sidebarToggle)}/><br/>
             <p className='font-bold  text-sm  sm:text-2xl flex flex-wrap pl-3 text-slate-600'>
-    EliteEstate
+    EliteEstates
         </p>
         </div>
         <div className="flex items-center gap-x-5">

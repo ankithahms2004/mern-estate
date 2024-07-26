@@ -80,7 +80,7 @@ const [text] = useTypewriter({
     
         <Link to='/'>
     <h1 className='font-bold text-sm sm:text-2xl flex flex-wrap'>
-        <span className='text-white'>Elite Estate</span><br/>
+        <span className='text-white'>Elite Estates</span><br/>
       
 
     </h1>

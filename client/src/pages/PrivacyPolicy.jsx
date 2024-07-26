@@ -7,19 +7,20 @@ AOS.init({
 });
 import React from 'react'
 import Dashboard from '../components/Dashboard';
+import { Link } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
   return (
     <>
     <Dashboard/>
     <div className='py-20 relative px-4 max-w-6xl mx-auto' data-aos="zoom-in-left">
-      <h1 className='text-4xl text-center mt-0 font-bold mb-4 text-slate-800'>Elite <span className='text-slate-600'>Estate</span></h1>
+      <h1 className='text-4xl text-center mt-0 font-bold mb-4 text-slate-800'>Elite <span className='text-slate-600'>Estates</span></h1>
       <h2 className='text-3xl font-bold mb-4 text-slate-800'>Privacy Policy : </h2>
       <p className='mb-4 text-slate-700'>This privacy policy ("Policy") explains the policy regarding the collection, use, disclosure and transfer of your information by EliteEstate Realty Services Limited and/or its subsidiary(ies) and/or affiliate(s) (collectively referred to as the "Company"), which operates various websites, including sub-sites, platforms, applications, m-web platforms and other platforms (collectively referred to as "Sites") for delivery of information, products, offerings and content via any mobile or internet connected device or otherwise (collectively the "Services").
       Our mission is to help our clients achieve their real estate goals by providing expert advice, personalized service, and a deep understanding of the local market. Whether you are looking to buy, sell, or rent a property, we are here to help you every step of the way.
       </p>
       <p className='mb-4 text-slate-700'>This Policy forms part and parcel of the Terms of Use and other terms on the Site ("Terms of Use"). Capitalized terms which have been used here but are undefined shall have the same meaning as attributed to them in the Terms of Use. This policy is effective from the date and time a user registers with Site and accept the terms and conditions laid out in the Site. Please read this Privacy Policy and our Terms of Use carefully before using our Services.</p>
-      <p className='mb-4 text-slate-700'>EliteEstate respects the privacy of its users and is committed to protect it in all respects. With a view to offer most enriching and holistic internet experience to its users EliteEstate offers a vast repository of Online Sites and variety of community services.</p>
+      <p className='mb-4 text-slate-700'>EliteEstates respects the privacy of its users and is committed to protect it in all respects. With a view to offer most enriching and holistic internet experience to its users EliteEstate offers a vast repository of Online Sites and variety of community services.</p>
       <p className='mb-4 text-slate-700'>The information about the user as collected by EliteEstate is: (a) information supplied by users and (b) information automatically tracked while navigation (Information).</p>
       <p className='mb-4 text-slate-700'>By using EliteEstate website or its services, you consent to collection, storage, use, transfer, share and distribute the personal information you provide (including any changes thereto as provided by you) for any of the services that we offer.</p>
       <h2 className='text-3xl font-bold mb-4 text-slate-800'>1. Information Supplied By Users :</h2>
@@ -55,15 +56,15 @@ Registered telephone numbers of customers coming on our site may receive telepho
 <h2 className='text-3xl font-bold mb-4 text-slate-800'>5. Questions / Grievance Redressal :</h2>
      
      <p className='mb-2 text-slate-700'>Mr. Sandeep Dhatwalia (Grievance Officer)</p>
-<a href='#' className='text-red-600 mb-4'>www.EliteEstate.com</a>
+<Link href='#' to={"https://mern-estate-wq5r.onrender.com"} className='text-red-600 mb-4'>www.EliteEstates.com</Link>
 <p className='mb-2 text-slate-700'>EliteEstate Realty Services Limited</p>
      <p className='mb-2 text-slate-700'>Times Centre</p>
      <p className='mb-2 text-slate-700'>FC-6, Film City</p>
      <p className='mb-2 text-slate-700'>Sector 16-A, Noida - 201301, India</p>
-     <p className='mb-2 text-slate-700'>Email:<a href='#' className='text-red-600 mb-4'>greviance@gmail.com</a></p>
+     <p className='mb-2 text-slate-700'>Email:<Link href='#' to={'mailto:greviance@gamil.com'} className='text-red-600 mb-4'>greviance@gmail.com</Link></p>
      <p className='mb-4 text-slate-700'>Ph: 0120-663 7000</p>
      <p className='mb-4 text-slate-700'>This Privacy Policy is subject to changes. Please periodically review this page for the latest information on our privacy practices.</p>
-     <p className='mb-6 pt-20 pb-0 align-text-bottom text-sm text-center bottom-0 text-slate-700'>All trademarks, logos and names are properties of their respective owners. All Rights Reserved.© Copyright 2024 EliteEstate Realty Services Limited. Terms of use</p>
+     <p className='mb-6 pt-20 pb-0 align-text-bottom text-sm text-center bottom-0 text-slate-700'>All trademarks, logos and names are properties of their respective owners. All Rights Reserved.© Copyright 2024 EliteEstates Realty Services Limited. Terms of use</p>
       
 
     </div>

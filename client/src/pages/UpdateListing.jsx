@@ -180,8 +180,8 @@ export default function UpdateListing() {
   return (
     <><Dashboard/>
     <main className='p-3 max-w-4xl mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7' data-aos="zoom-in-left">
-        Update a Listing
+      <h1 className='text-3xl p-3 text-orange-500 font-semibold text-center my-7' data-aos="zoom-in-left">
+        UPDATE LISTING
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4' data-aos="zoom-in-left">
         <div className='flex flex-col gap-4 flex-1' data-aos="zoom-in-left">
@@ -383,7 +383,7 @@ export default function UpdateListing() {
             ))}
           <button data-aos="zoom-in-left"
             disabled={loading || uploading}
-            className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+            className='p-3 bg-green-600 text-white rounded-lg uppercase hover:bg-green-700 disabled:opacity-80'
           >
             {loading ? 'Updating...' : 'Update listing'}
           </button>

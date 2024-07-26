@@ -29,7 +29,7 @@ const Sidebar = ({sidebarToggle}) => {
     <div className={` ${sidebarToggle ? "hidden" : "block"} w-64 fixed z-50 transform  transition-transform duration-300 ease-in-out bg-white shadow rounded  h-full `}>
         <div className='my-2 mb-0'>
         
-            <h1 className='text-2xl text-black  text-center font-semibold'>EliteEstate</h1>
+            <h1 className='text-2xl text-black  text-center font-semibold'>EliteEstates</h1>
         </div><br/>
         <hr/>
         <ul className='p-2 text-1xl mt-3'>
